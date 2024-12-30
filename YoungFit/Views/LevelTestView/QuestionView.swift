@@ -11,23 +11,34 @@ struct QuestionView: View {
 	@EnvironmentObject var vm: YFViewModel
 	@State var questionIndex: Int = 0
 	
-    var body: some View {
-			VStack {
+	var body: some View {
+		
+		VStack {
+			if vm.testLevel == "" {
 				if vm.questions.isEmpty {
-						ProgressView("질문을 불러오는 중...")
+					ProgressView("질문을 불러오는 중...")
 				} else {
-						QuestionCard(question: $vm.questions[questionIndex])
+					QuestionCard(question: $vm.questions[questionIndex])
 				}
 				buttons
+			} else {
+				LevelView()
 			}
-			.onAppear {
-				//				if vm.questions.isEmpty {
-				//					vm.fetchQuestions()
-				//				}
-				vm.fetchQuestions()
-				questionIndex = 0
+		}
+		//.fullScreenCover(isPresented: vm.testLevel != "", content: <#T##() -> View#>)
+		.onAppear {
+			vm.fetchQuestions()
+			questionIndex = 0
+		}
+		.alert("YoungFit", isPresented: $vm.showAlert) {
+			Button("확인", role: .cancel) {
+				
 			}
-    }
+		} message: {
+			Text("\(vm.testScore)점으로 \(vm.testLevel)레벨입니다.")
+		}
+
+	}
 	private var buttons: some View {
 		HStack {
 			CardButton(icon: "arrowshape.turn.up.left.fill", title: "이전", disabled: questionIndex <= 0) {
@@ -37,7 +48,7 @@ struct QuestionView: View {
 				questionIndex += 1
 			}
 			CardButton(icon: "", title: "제출", disabled: questionIndex != vm.questions.count - 1) {
-				
+				vm.submitAnswer()
 			}
 		}
 	}
@@ -45,6 +56,5 @@ struct QuestionView: View {
 
 #Preview {
 	let vm = YFViewModel()
-	
 	QuestionView().environmentObject(vm)
 }

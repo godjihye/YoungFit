@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B155D0D2D21A45D0017A45D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B155D0C2D21A45D0017A45D /* RegisterView.swift */; };
+		0B155D0F2D21A4640017A45D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B155D0E2D21A4640017A45D /* LoginView.swift */; };
+		0B155D122D21A4940017A45D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B155D112D21A4940017A45D /* CustomTextField.swift */; };
+		0B155D142D21AD490017A45D /* WideImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B155D132D21AD490017A45D /* WideImageButton.swift */; };
+		0B155D162D21BE720017A45D /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B155D152D21BE720017A45D /* LevelView.swift */; };
 		0B6E69BA2D19388F009C4696 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6E69B42D19388F009C4696 /* Preview Assets.xcassets */; };
 		0B6E69BB2D19388F009C4696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6E69B62D19388F009C4696 /* Assets.xcassets */; };
 		0B6E69BC2D19388F009C4696 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E69B72D19388F009C4696 /* ContentView.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B155D0C2D21A45D0017A45D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		0B155D0E2D21A4640017A45D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0B155D112D21A4940017A45D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		0B155D132D21AD490017A45D /* WideImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideImageButton.swift; sourceTree = "<group>"; };
+		0B155D152D21BE720017A45D /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		0B6E69A32D193879009C4696 /* YoungFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoungFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6E69B42D19388F009C4696 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B6E69B62D19388F009C4696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B155D0B2D21A39D0017A45D /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				0B155D0C2D21A45D0017A45D /* RegisterView.swift */,
+				0B155D0E2D21A4640017A45D /* LoginView.swift */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
+		0B155D102D21A4820017A45D /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				0B155D112D21A4940017A45D /* CustomTextField.swift */,
+				0B155D132D21AD490017A45D /* WideImageButton.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
 		0B6E699A2D193879009C4696 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +135,8 @@
 		0B6E69BE2D193894009C4696 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B155D102D21A4820017A45D /* CommonView */,
+				0B155D0B2D21A39D0017A45D /* UserView */,
 				0B6E69E02D19747C009C4696 /* LevelTestView */,
 				0B6E69D42D194FA9009C4696 /* CardView */,
 				0B6E69CE2D193EED009C4696 /* SentenceView */,
@@ -165,6 +195,7 @@
 			children = (
 				0B6E69E12D19751E009C4696 /* QuestionCard.swift */,
 				0B6E69E32D1986A0009C4696 /* QuestionView.swift */,
+				0B155D152D21BE720017A45D /* LevelView.swift */,
 			);
 			path = LevelTestView;
 			sourceTree = "<group>";
@@ -255,11 +286,16 @@
 				0B6E69C82D193C11009C4696 /* AlbumListView.swift in Sources */,
 				0B6E69DC2D196252009C4696 /* ViewModel.swift in Sources */,
 				0B6E69C62D193A29009C4696 /* AlbumRow.swift in Sources */,
+				0B155D122D21A4940017A45D /* CustomTextField.swift in Sources */,
+				0B155D162D21BE720017A45D /* LevelView.swift in Sources */,
+				0B155D142D21AD490017A45D /* WideImageButton.swift in Sources */,
 				0B6E69DA2D195ABF009C4696 /* SentenceCardView.swift in Sources */,
 				0B6E69D82D1953B5009C4696 /* CardButton.swift in Sources */,
+				0B155D0F2D21A4640017A45D /* LoginView.swift in Sources */,
 				0B6E69E42D1986A0009C4696 /* QuestionView.swift in Sources */,
 				0B6E69E22D19751E009C4696 /* QuestionCard.swift in Sources */,
 				0B6E69BC2D19388F009C4696 /* ContentView.swift in Sources */,
+				0B155D0D2D21A45D0017A45D /* RegisterView.swift in Sources */,
 				0B6E69D32D194D55009C4696 /* AudioPlayerManager.swift in Sources */,
 				0B6E69BD2D19388F009C4696 /* YoungFitApp.swift in Sources */,
 			);

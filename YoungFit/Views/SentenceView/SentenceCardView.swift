@@ -45,6 +45,7 @@ struct SentenceCardView: View {
 				}
 				CardButton(icon: "arrowshape.turn.up.right.fill", title: "다음", disabled: index == sentences.count - 1) { index += 1}
 			}
+			.padding(.bottom)
 		}
 		.navigationTitle("학습")
 		.navigationBarTitleDisplayMode(.inline)

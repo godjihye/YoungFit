@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct QuestionCard: View {
+	@EnvironmentObject var vm: YFViewModel
 	@Binding var question: Question
 	@State var answer: String = ""
+	
 	var body: some View {
 		VStack {
 			VStack {
@@ -19,18 +21,21 @@ struct QuestionCard: View {
 			.font(.title3)
 			.fontWeight(.bold)
 			.padding()
+			
 			Divider()
+			
 			VStack(alignment: .leading) {
 				ForEach(question.options) { option in
 					Button {
-//						question.selectedOption = option.id
+
 						question.selectedOption = option.id
-								print("Selected option ID: \(option.id)")
-								print("Question selectedOption: \(question.selectedOption ?? -1)")
-//								if let index = questions.firstIndex(where: { $0.id == question.id }) {
-//										questions[index] = question
-//										print("Updated questions array: \(questions[index].selectedOption ?? -1)")
-//								}
+						if vm.answers.contains(where: {$0.question_id == question.id}) {
+							if let index = vm.answers.firstIndex(where: {$0.question_id == question.id}) {
+								vm.answers[index].answer = option.id
+							}
+						} else {
+							vm.answers.append(Answer(question_id: question.id, answer: option.id))
+						}
 					} label: {
 						
 						Image(systemName: question.selectedOption == option.id ? "circle.fill" : "circle")

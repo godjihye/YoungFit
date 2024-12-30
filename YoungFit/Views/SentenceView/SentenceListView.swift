@@ -13,24 +13,29 @@ struct SentenceListView: View {
 
 	var body: some View {
 		NavigationView {
-			List {
-				NavigationLink {
-					SentenceCardView(sentences: vm.sentences)
-				} label: {
-					Text("학습 시작")
-						.foregroundStyle(.purple)
+			VStack {
+				Text(vm.currentAlbum?.name ?? "")
+					.font(.title3)
+					.fontWeight(.bold)
+					.padding()
+				List {
+					NavigationLink {
+						SentenceCardView(sentences: vm.sentences)
+					} label: {
+						Text("학습 시작")
+							.foregroundStyle(.purple)
+					}
+					
+					ForEach(vm.sentences) { sentence in
+						SentenceRow(sentence: sentence)
+					}
 				}
-				
-				ForEach(vm.sentences) { sentence in
-					SentenceRow(sentence: sentence)
+				.listStyle(.plain)
+				.onAppear {
+					vm.fetchSentences(albumId: albumId)
 				}
-			}
-			.listStyle(.plain)
-			.onAppear {
-				vm.fetchSentences(albumId: albumId)
 			}
 		}
-		.navigationTitle(vm.currentAlbum?.name ?? "")
 	}
 }
 

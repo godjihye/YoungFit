@@ -12,10 +12,12 @@ struct ContentView: View {
 			TabView {
 				AlbumListView().environmentObject(YFViewModel())
 					.tabItem {
+						Image(systemName: "backpack.fill")
 						Text("학습")
 					}
 				QuestionView().environmentObject(YFViewModel())
 					.tabItem {
+						Image(systemName: "doc.text.fill")
 						Text("테스트")
 					}
 			}

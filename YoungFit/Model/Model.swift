@@ -59,28 +59,80 @@ struct Option: Decodable, Identifiable {
 }
 struct Answer: Codable {
 	let question_id: Int
-	let answer: Int
+	var answer: Int
+	enum CodingKeys: String, CodingKey {
+		case question_id
+		case answer
+	}
 }
 
 struct Answers: Codable {
 	let answers: [Answer]
 }
 
-/*
- 
-	
-{
-	"answers": [
-		{ "question_id": 1, "answer": 2 },
-		{ "question_id": 2, "answer": 3 },
-		{ "question_id": 3, "answer": 1 },
-		{ "question_id": 4, "answer": 4 },
-		{ "question_id": 5, "answer": 3 },
-		{ "question_id": 6, "answer": 2 },
-		{ "question_id": 7, "answer": 4 },
-		{ "question_id": 8, "answer": 1 },
-		{ "question_id": 9, "answer": 2 },
-		{ "question_id": 10, "answer": 4 }
-	]
+struct TestResult: Decodable {
+	let total_score: Int
+	let level: String
 }
+
+struct APIError: Decodable {
+	let message: String
+	let success: Bool
+}
+
+struct User: Decodable {
+	let level: String
+	let visitCount: Int
+	let name: String
+}
+
+struct SignUp: Decodable {
+	let user: User
+	let message: String
+}
+
+struct SignIn: Decodable {
+	let message: String
+	let token: String
+	let visitCount: Int
+	let lastVisit: String
+}
+/*
+ {
+ "message": "회원
+ 가
+ 입이 성공적으로 완료되었습니다
+ "
+ .
+ ,
+ "user": {
+ "level": "A0"
+ ,
+ "visitCount": 0,
+ "id": 17,
+ "email": "d4@aaa.com"
+ ,
+ "password": "$2b$10$PWiJNQbhJMDvGL0NuqwzPOVPGAu11sM
+ "name": "멍멍이"
+ ,
+ "updatedAt": "2024-12-01T09:49:56.383Z"
+ ,
+ "createdAt": "2024-12-01T09:49:56.383Z"
+ "lastVisit": null
+ }
+ 
+ {
+ "answers": [
+ { "question_id": 1, "answer": 2 },
+ { "question_id": 2, "answer": 3 },
+ { "question_id": 3, "answer": 1 },
+ { "question_id": 4, "answer": 4 },
+ { "question_id": 5, "answer": 3 },
+ { "question_id": 6, "answer": 2 },
+ { "question_id": 7, "answer": 4 },
+ { "question_id": 8, "answer": 1 },
+ { "question_id": 9, "answer": 2 },
+ { "question_id": 10, "answer": 4 }
+ ]
+ }
  */
